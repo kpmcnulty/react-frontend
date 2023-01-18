@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Table from './Table'
-
+import Form from './Form';
 function MyApp() {
     
   const [characters, setCharacters] = useState([
@@ -30,12 +30,19 @@ function MyApp() {
   return (
     
       <div className="container">
-        <Table characterData={characters} removeCharacter={removeOneCharacter} />
+        <Table characterData={characters} removeCharacter={removeOneCharacter} />  
+        <Form handleSubmit={updateList} />
       </div>
     
   )
   
-    
+   
+
+  function updateList(person) {
+    setCharacters([...characters, person]);
+  }
+
+ 
 }
 
 export default MyApp;
